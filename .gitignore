@@ -1,1 +1,3 @@
 **/hardware.nix
+**/filesystems/default.nix
+**/filesystems/options.nix
