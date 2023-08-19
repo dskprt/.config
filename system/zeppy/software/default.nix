@@ -1,6 +1,6 @@
 { pkgs }: {
 	imports = [
-		./desktop/plasma5.nix
+		./desktop/gnome.nix
 	];
 
 	services.tlp.enable = true;
@@ -39,7 +39,6 @@
 		pciutils
 		util-linux
 		nvme-cli
-
 		amdctl
 
 		qemu
@@ -51,7 +50,7 @@
 			steam = prev.steam.override ({ extraPkgs ? pkgs': [], ... }: {
 				extraPkgs = pkgs': (extraPkgs pkgs') ++ (with pkgs'; [
 					openssl
-	]);
+				]);
 			});
 		})
 	];
