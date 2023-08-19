@@ -48,7 +48,7 @@
 		discord
 		audacious
 		vlc
-		krita
+		#krita
 		obsidian
 
 		lutris
