@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 	services = {
 		xserver = {
 			enable = true;
@@ -6,7 +6,7 @@
 			desktopManager.gnome.enable = true;
 			displayManager.gdm.enable = true;
 		};
-		gnoome = {
+		gnome = {
 			core-os-services.enable = true;
 			core-shell.enable = true;
 			core-utilities.enable = true;
@@ -15,15 +15,15 @@
 		};
 	};
 
-	services.gnome.gnome-online-miners.enable = false;
-	services.packagekit.enable = false;
-	services.gnome.gnome-initial-setup.enable = false;
-	#services.gnome.gnome-remote-desktop.enable = false;
-	#services.gnome.rygel.enable = false;
-	services.gnome.sushi.enable = false;
+	services.gnome.gnome-online-miners.enable = lib.mkForce false;
+	services.packagekit.enable = lib.mkForce false;
+	services.gnome.gnome-initial-setup.enable = lib.mkForce false;
+	#services.gnome.gnome-remote-desktop.enable = lib.mkForce false;
+	#services.gnome.rygel.enable = lib.mkForce false;
+	services.gnome.sushi.enable = lib.mkForce false;
 
-	programs.gnome-terminal.enable = false;
-	#programs.geary.enable = false;
+	programs.gnome-terminal.enable = lib.mkForce true;
+	#programs.geary.enable = lib.mkForce false;
 
 	environment.gnome.excludePackages = (with pkgs; [
 		gnome-tour
@@ -44,10 +44,10 @@
 
 	environment.systemPackages = with pkgs; [
 		gnome.gnome-shell-extensions
-		dconf-editor
+		gnome.dconf-editor
 
 		cinnamon.nemo-with-extensions
-		cinnamon.nemo-file-roller
+		cinnamon.nemo-fileroller
 
 		gnome.adwaita-icon-theme
 	];
