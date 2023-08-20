@@ -8,7 +8,7 @@
       - put additional filesystem options in filesystems/option.nix
       - change luks disk label in filesystems/luks.nix if using luks
    3. if using an nvidia gpu switch import from ./gpu/amd.nix to ./gpu/nvidia.nix in system/\*/default.nix
-3. use `sudo nixos-install --flake .#<hostname>` to build the system
+3. use `sudo nixos-install --root /mnt --flake .#<hostname>` to build the system
 4. reboot & login to user
 5. `home-manager switch --flake .#<user>@<username>` to build user configuration
 
