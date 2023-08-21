@@ -11,12 +11,16 @@
 
 		# Impermanence
 		impermanence.url = "github:nix-community/impermanence";
+
+		# Hyprland
+		hyprland.url = "github:hyprwm/Hyprland";
 	};
 
 	outputs = {
 		nixpkgs,
 		home-manager,
 		impermanence,
+		hyprland,
 		...
 	}@inputs: {
 		# NixOS configuration entrypoint
@@ -36,7 +40,9 @@
 				pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
 				extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
 				# > Our main home-manager configuration file <
-				modules = [ ./home/zeppy/skk.nix ];
+				modules = [
+					./home/zeppy/skk/default.nix
+				];
 			};
 		};
 	};
