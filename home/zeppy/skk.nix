@@ -45,35 +45,38 @@
 	home.packages = with pkgs; [
 		any-nix-shell
 
-		discord
-		audacious
-		vlc
+#		discord
+#		audacious
+#		vlc
 		#krita
-		obsidian
+#		obsidian
 
-		lutris
-		legendary-gl
-		parsec-bin
+#		lutris
+#		legendary-gl
+#		parsec-bin
 		#grapejuice
-		prismlauncher
+#		prismlauncher
 		#lunar-client
 
 		#temurin-bin-17
 		#temurin-jre-bin-8
 
-		vscode-fhs
+#		vscode-fhs
 		#dotnet-sdk_7
 		#jetbrains-toolbox
-		github-desktop
+#		github-desktop
 
 		#skypeforlinux
 		#xournalpp
 		#gnome.adwaita-icon-theme
 
-		vivaldi
-		vivaldi-ffmpeg-codecs
+#		vivaldi
+#		vivaldi-ffmpeg-codecs
 
 		#blender
+
+		########
+		firefox
 	];
 
 	programs.fish = {

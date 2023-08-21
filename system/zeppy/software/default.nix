@@ -1,16 +1,16 @@
 { pkgs, ... }: {
 	imports = [
-		./desktop/gnome.nix
+		./desktop/hyprland.nix
 	];
 
-	services.tlp.enable = true;
-	services.tailscale.enable = true;
+#	services.tlp.enable = true;
+#	services.tailscale.enable = true;
 	# services.openssh.enable = true;
 
-	programs.steam.enable = true; # steam needs to by installed system-wide :(
+#	programs.steam.enable = true; # steam needs to by installed system-wide :(
 	programs.fish.enable = true;
-	programs.dconf.enable = true;
-	programs.adb.enable = true;
+#	programs.dconf.enable = true;
+#	programs.adb.enable = true;
 
 	programs.nix-index = {
 		enable = true;
@@ -27,7 +27,7 @@
 		micro
 		tmux
 
-		nvtop
+#		nvtop
 		htop
 
 		rsync
@@ -38,11 +38,11 @@
 		usbutils
 		pciutils
 		util-linux
-		nvme-cli
-		amdctl
+#		nvme-cli
+#		amdctl
 
-		qemu
-		virt-manager
+#		qemu
+#		virt-manager
 	];
 
 	nixpkgs.overlays = [
@@ -60,7 +60,7 @@
 		#lxd.enable = true;
 
 		libvirtd = {
-			enable = true;
+#			enable = true;
 		};
 	};
 

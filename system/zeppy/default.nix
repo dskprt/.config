@@ -8,7 +8,7 @@
 		./users
 		./boot
 		./software
-		./gpu/amd.nix
+#		./gpu/amd.nix
 
 		# custom systemd services
 		# ./services/00-amdctl-undervolt.nix
