@@ -40,56 +40,15 @@
 	};
 
 	programs.home-manager.enable = true;
-	programs.mangohud = {
-		enable = true;
-		#enableSessionWide = true;
-	};
-
+	
 	home.packages = with pkgs; [
 		any-nix-shell
-
-#		discord
-#		audacious
-#		vlc
-		#krita
-#		obsidian
-
-#		lutris
-#		legendary-gl
-#		parsec-bin
-		#grapejuice
-#		prismlauncher
-		#lunar-client
-
-		#temurin-bin-17
-		#temurin-jre-bin-8
-
-#		vscode-fhs
-		#dotnet-sdk_7
-		#jetbrains-toolbox
-#		github-desktop
-
-		#skypeforlinux
-		#xournalpp
-		#gnome.adwaita-icon-theme
-
-#		vivaldi
-#		vivaldi-ffmpeg-codecs
-
-		#blender
-
-		########
 		firefox
 	];
 
 	programs.fish = {
 		enable = true;
 		shellInit = ''
-			set -Ux PIPENV_VENV_IN_PROJECT 1
-			set -x HSA_OVERRIDE_GFX_VERSION 10.3.0
-			set -x PYTORCH_CUDA_ALLOC_CONF max_split_size_mb=128
-			set -x PYTORCH_HIP_ALLOC_CONF garbage_collection_threshold:0.95,max_split_size_mb:128
-
 			set -x WINEDLLOVERRIDES winemenubuilder.exe=d
 		'';
 		interactiveShellInit = ''
