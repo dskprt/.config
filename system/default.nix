@@ -77,7 +77,7 @@
 	services.fstrim.enable = true;
 
 	## networking
-	networking.hostName = "zeppy";
+	networking.hostName = "workbench";
 	networking.networkmanager.enable = true;
 
 	## time

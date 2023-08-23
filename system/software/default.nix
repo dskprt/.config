@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 	imports = [
-		./desktop/hyprland.nix
+		./desktop/gnome.nix
 	];
 
 	services.tlp.enable = true;

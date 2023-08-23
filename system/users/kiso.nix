@@ -1,9 +1,9 @@
 { pkgs, ... }: {
-	users.users.skk = {
+	users.users.kiso = {
 		isNormalUser = true;
-		home = "/home/commander";
+		home = "/home/generic";
 		shell = pkgs.fish;
-		passwordFile = "/@/skk.pass";
+		passwordFile = "/@/kiso.pass";
 		extraGroups = [ "wheel" "audio" "video" "render" "adbusers" ];
 	};
 }

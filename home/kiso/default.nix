@@ -3,9 +3,6 @@
 	imports = [
 		# If you want to use home-manager modules from other flakes (such as nix-colors):
 		# inputs.nix-colors.homeManagerModule
-		inputs.hyprland.homeManagerModules.default
-
-		../../../external/nwg-shell/impure.nix
 	];
 
 	nixpkgs = {
@@ -35,8 +32,8 @@
 	};
 
 	home = {
-		username = "skk";
-		homeDirectory = "/home/commander";
+		username = "kiso";
+		homeDirectory = "/home/generic";
 	};
 
 	programs.home-manager.enable = true;
@@ -48,7 +45,7 @@
 		audacious
 		vlc
 		#krita
-		obsidian
+		#obsidian
 
 		lutris
 		legendary-gl

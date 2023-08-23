@@ -1,6 +1,6 @@
 {
   imports = [
-    ./skk.nix
+    ./kiso.nix
   ];
 
   users.mutableUsers = false;
