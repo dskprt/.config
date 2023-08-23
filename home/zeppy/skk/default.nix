@@ -5,7 +5,7 @@
 		# inputs.nix-colors.homeManagerModule
 		inputs.hyprland.homeManagerModules.default
 
-		./hyprland.nix
+		../../../external/nwg-shell/impure.nix
 	];
 
 	nixpkgs = {
