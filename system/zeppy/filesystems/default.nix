@@ -1,7 +1,7 @@
 {
 	imports = [
 		./options.nix
-		# ./persistence.nix
-		# ./luks.nix
+		./persistence.nix
+		./luks.nix
 	];
 }

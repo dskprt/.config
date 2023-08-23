@@ -43,12 +43,31 @@
 	
 	home.packages = with pkgs; [
 		any-nix-shell
-		firefox
+		
+		discord
+		audacious
+		vlc
+		#krita
+		obsidian
+
+		lutris
+		legendary-gl
+		prismlauncher
+
+		vscode-fhs
+		github-desktop
+
+		vivaldi
+		vivaldi-ffmpeg-codecs
 	];
 
 	programs.fish = {
 		enable = true;
 		shellInit = ''
+			set -Ux PIPENV_VENV_IN_PROJECT 1
+			set -x HSA_OVERRIDE_GFX_VERSION 10.3.0
+			set -x PYTORCH_HIP_ALLOC_CONF garbage_collection_threshold:0.95,max_split_size_mb:128
+
 			set -x WINEDLLOVERRIDES winemenubuilder.exe=d
 		'';
 		interactiveShellInit = ''

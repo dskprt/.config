@@ -4,10 +4,13 @@
 	];
 
 	services.tlp.enable = true;
+	services.tailscale.enable = true;
 	# services.openssh.enable = true;
 
+	programs.steam.enable = true;
 	programs.fish.enable = true;
 	programs.dconf.enable = true;
+	programs.adb.enable = true;
 
 	programs.nix-index = {
 		enable = true;
@@ -35,7 +38,32 @@
 		usbutils
 		pciutils
 		util-linux
+
+		nvme-cli
+		amdctl
+
+		qemu
+		virt-manager
 	];
+
+	nixpkgs.overlays = [
+		(final: prev: {
+			steam = prev.steam.override ({ extraPkgs ? pkgs': [], ... }: {
+				extraPkgs = pkgs': (extraPkgs pkgs') ++ (with pkgs'; [
+					openssl
+				]);
+			});
+		})
+	];
+
+	virtualisation = {
+		#waydroid.enable = true;
+		#lxd.enable = true;
+
+		libvirtd = {
+			enable = true;
+		};
+	};
 
 	environment.variables = {
 		EDITOR = "micro";
