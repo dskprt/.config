@@ -13,14 +13,14 @@
 		impermanence.url = "github:nix-community/impermanence";
 
 		# Hyprland
-		hyprland.url = "github:hyprwm/Hyprland";
+		# hyprland.url = "github:hyprwm/Hyprland";
 	};
 
 	outputs = {
 		nixpkgs,
 		home-manager,
 		impermanence,
-		hyprland,
+		# hyprland,
 		...
 	}@inputs: {
 		# NixOS configuration entrypoint
