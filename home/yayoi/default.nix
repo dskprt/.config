@@ -24,44 +24,24 @@
 			allowUnfree = true;
 			# Workaround for https://github.com/nix-community/home-manager/issues/2942
 			allowUnfreePredicate = (_: true);
-			# github-desktop needs openssl-1.1.1 :(
-			permittedInsecurePackages = [
-				"openssl-1.1.1u"
-			];
 		};
 	};
 
 	home = {
-		username = "kiso";
-		homeDirectory = "/home/default";
+		username = "yayoi";
+		homeDirectory = "/home/guest";
 	};
 
 	programs.home-manager.enable = true;
 	
 	home.packages = with pkgs; [
 		any-nix-shell
-		
-		discord
-		audacious
-		vlc
-		#krita
-		#obsidian
-
-		lutris
-		legendary-gl
-		prismlauncher
-
-		vscode-fhs
-		github-desktop
 	];
 
 	programs.fish = {
 		enable = true;
 		shellInit = ''
 			set -Ux PIPENV_VENV_IN_PROJECT 1
-			set -x HSA_OVERRIDE_GFX_VERSION 10.3.0
-			set -x PYTORCH_HIP_ALLOC_CONF garbage_collection_threshold:0.95,max_split_size_mb:128
-
 			set -x WINEDLLOVERRIDES winemenubuilder.exe=d
 		'';
 		interactiveShellInit = ''

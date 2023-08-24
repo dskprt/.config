@@ -44,6 +44,9 @@
 
 		qemu
 		virt-manager
+
+		vivaldi
+		vivaldi-ffmpeg-codecs
 	];
 
 	nixpkgs.overlays = [

@@ -13,23 +13,23 @@
 		impermanence.url = "github:nix-community/impermanence";
 
 		# Hyprland
-		hyprland.url = "github:hyprwm/Hyprland";
+		# hyprland.url = "github:hyprwm/Hyprland";
 	};
 
 	outputs = {
 		nixpkgs,
 		home-manager,
 		impermanence,
-		hyprland,
+		# hyprland,
 		...
 	}@inputs: {
 		# NixOS configuration entrypoint
 		# Available through 'nixos-rebuild --flake .#your-hostname'
 		nixosConfigurations = {
-			"system" = nixpkgs.lib.nixosSystem {
+			"workbench" = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit inputs; }; # Pass flake inputs to our config
 				# > Our main nixos configuration file <
-				modules = [ ./system ];
+				modules = [ ./workbench ];
 			};
 		};
 
@@ -40,9 +40,12 @@
 				pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
 				extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
 				# > Our main home-manager configuration file <
-				modules = [
-					./home/kiso/default.nix
-				];
+				modules = [ ./home/kiso/default.nix ];
+			};
+			"yayoi" = home-manager.lib.homeManagerConfiguration {
+				pkgs = nixpkgs.legacyPackages.x86_64-linux;
+				extraSpecialArgs = { inherit inputs; };
+				modules = [ ./home/yayoi/default.nix ];
 			};
 		};
 	};
