@@ -1,4 +1,8 @@
 { pkgs, ... }: {
+	imports = [
+		./plymouth.nix
+	];
+
 	boot.kernelPackages = pkgs.linuxPackages_latest;
 	boot.kernelParams = [ "amd_pstate=active" "amd_pstate.replace=1" "amdgpu.ppfeaturemask=0xfff7ffff" ];
 	# boot.kernelModules = [ "msr" ];
@@ -11,6 +15,7 @@
 			enable = true;
 			efiSupport = true;
 			device = "nodev";
+			configurationLimit = 20;
 			theme = pkgs.stdenv.mkDerivation {
 				pname = "workbench-grub-theme";
 				version = "1.0";
