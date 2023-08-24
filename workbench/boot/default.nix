@@ -1,10 +1,25 @@
 { pkgs, ... }: {
 	boot.kernelPackages = pkgs.linuxPackages_latest;
-	boot.kernelParams = [ "amd_pstate=guided" "amd_pstate.replace=1" "amdgpu.ppfeaturemask=0xfff7ffff" ];
-	boot.kernelModules = [ "msr" ];
+	boot.kernelParams = [ "amd_pstate=active" "amd_pstate.replace=1" "amdgpu.ppfeaturemask=0xfff7ffff" ];
+	# boot.kernelModules = [ "msr" ];
+	boot.consoleLogLevel = 6;
 
 	boot.loader = {
 		efi.canTouchEfiVariables = true;
-		systemd-boot.enable = true;
+		
+		grub = {
+			enable = true;
+			efiSupport = true;
+			device = "nodev";
+			theme = pkgs.stdenv.mkDerivation {
+				pname = "workbench-grub-theme";
+				version = "1.0";
+				src = builtins.path {
+					path = ./theme;
+					name = "workbench-grub-theme";
+				};
+				installPhase = "cp * $out";
+			};
+		};
 	};
 }

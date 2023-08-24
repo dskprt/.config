@@ -50,7 +50,7 @@
 		gc = {
 			automatic = true;
 			dates = "weekly";
-			options = "--delete-older-than 30d";
+			options = "--delete-older-than 21d";
 		};
 
 		settings = {
@@ -71,8 +71,6 @@
 		memoryPercent = 100;
 	};
 
-	console.earlySetup = true;
-
 	## enable periodic fstrim
 	services.fstrim.enable = true;
 
@@ -86,7 +84,27 @@
 	## console
 	i18n.defaultLocale = "en_GB.UTF-8";
 	console = {
-		font = "Lat2-Terminus16";
+		#font = "Lat2-Terminus16";
+		keymap = "pl";
+		earlySetup = true;
+	#	colors = [
+	#		"282828"
+	#		"cc231d"
+	#		"989621"
+	#		"d79a21"
+	#		"458588"
+	#		"b16286"
+	#		"689d6a"
+	#		"a89984"
+	#		"928374"
+	#		"fb4934"
+	#		"b8bb26"
+	#		"fabd2f"
+	#		"83a598"
+	#		"d3869b"
+	#		"8ec07c"
+	#		"ebdbb2"
+	#	];
 	};
 
 	## sound
