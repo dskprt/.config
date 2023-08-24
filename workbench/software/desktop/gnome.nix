@@ -61,6 +61,8 @@
 		"application/x-gnome-saved-search" = "nemo.desktop";
 	};
 
+	xdg.portal.xdgOpenUsePortal = true;
+
 	# experiment: nemo as desktop icon manager
 	services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
 		[org.gnome.desktop.background]

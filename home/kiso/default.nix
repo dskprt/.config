@@ -57,6 +57,23 @@
 
 	programs.fish = {
 		enable = true;
+		useBabelfish = true;
+		promptInit = ''
+			function fish_prompt
+				set_color brblue; printf "<"
+
+				if test -n "$IN_NIX_SHELL"
+						set_color --dim brblue; printf "<nix-shell> "; set_color normal
+				end
+
+				set_color white; printf "$USER"; set_color magenta; printf "@"; set_color white; printf "$hostname"
+				set_color brblack; printf (string replace "$HOME" "~" ":$(pwd)")
+
+				set_color cyan; printf (fish_vcs_prompt)
+
+				set_color brblue; printf "> "; set_color white
+			end
+		'';
 		shellInit = ''
 			set -Ux PIPENV_VENV_IN_PROJECT 1
 			set -x HSA_OVERRIDE_GFX_VERSION 10.3.0

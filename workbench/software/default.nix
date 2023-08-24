@@ -6,6 +6,7 @@
 	services.tlp.enable = true;
 	services.tailscale.enable = true;
 	# services.openssh.enable = true;
+	services.asusd.enable = true;
 
 	programs.steam.enable = true;
 	programs.fish.enable = true;
@@ -41,6 +42,7 @@
 
 		nvme-cli
 		amdctl
+		asusctl
 
 		qemu
 		virt-manager
