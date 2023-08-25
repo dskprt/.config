@@ -57,8 +57,7 @@
 
 	programs.fish = {
 		enable = true;
-		useBabelfish = true;
-		promptInit = ''
+		interactiveShellInit = ''
 			function fish_prompt
 				set_color brblue; printf "<"
 
@@ -73,6 +72,9 @@
 
 				set_color brblue; printf "> "; set_color white
 			end
+
+			set fish_greeting # Disable greeting
+			any-nix-shell fish --info-right | source
 		'';
 		shellInit = ''
 			set -Ux PIPENV_VENV_IN_PROJECT 1
@@ -80,10 +82,6 @@
 			set -x PYTORCH_HIP_ALLOC_CONF garbage_collection_threshold:0.95,max_split_size_mb:128
 
 			set -x WINEDLLOVERRIDES winemenubuilder.exe=d
-		'';
-		interactiveShellInit = ''
-			set fish_greeting # Disable greeting
-			any-nix-shell fish --info-right | source
 		'';
 		shellAliases = {
 			".." = "cd ..";

@@ -1,6 +1,6 @@
 { pkgs, ... }: {
 	imports = [
-		./plymouth.nix
+		#./plymouth.nix
 	];
 
 	boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -16,15 +16,15 @@
 			efiSupport = true;
 			device = "nodev";
 			configurationLimit = 20;
-			#theme = pkgs.stdenv.mkDerivation {
-			#	pname = "workbench-grub-theme";
-			#	version = "1.0";
-			#	src = builtins.path {
-			#		path = ./theme;
-			#		name = "workbench-grub-theme";
-			#	};
-			#	installPhase = "cp * $out";
-			#};
+			theme = pkgs.stdenv.mkDerivation {
+				pname = "workbench-grub-theme";
+				version = "1.0";
+				src = builtins.path {
+					path = ./theme;
+					name = "workbench-grub-theme";
+				};
+				installPhase = "mkdir -p $out && cp * $out/";
+			};
 		};
 	};
 }
