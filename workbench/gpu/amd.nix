@@ -9,12 +9,12 @@
 		vaapiVdpau
 		libvdpau-va-gl
 
-		hip
-		rocm-opencl-icd
-		rocm-opencl-runtime
+		#hip
+		#rocm-opencl-icd
+		#rocm-opencl-runtime
 	];
 
-	systemd.tmpfiles.rules = [
-		"L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
-	];
+	#systemd.tmpfiles.rules = [
+	#	"L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
+	#];
 }
