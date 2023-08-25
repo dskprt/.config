@@ -3,7 +3,7 @@
 		./desktop/gnome.nix
 	];
 
-	services.tlp.enable = true;
+	#services.tlp.enable = true;
 	services.tailscale.enable = true;
 	# services.openssh.enable = true;
 	services.asusd.enable = true;
