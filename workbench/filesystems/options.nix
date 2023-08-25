@@ -1,10 +1,10 @@
 {
-	fileSystems."/".options = [ "noatime" ];
-	fileSystems."/tmp".options = [ "size=8G" "noatime" ];
+	fileSystems."/".options = [ "noatime" "nodiratime" ];
+	fileSystems."/tmp".options = [ "size=8G" "noatime" "nodiratime" ];
 
-	fileSystems."/@".options = [ "compress=zstd:1" "space_cache=v2" "discard=async" "commit=60" "noatime" "ssd" ];
-	fileSystems."/home".options = [ "compress=zstd:1" "space_cache=v2" "discard=async" "commit=60" "noatime" "ssd" ];
-	fileSystems."/nix".options = [ "compress=zstd:1" "space_cache=v2" "discard=async" "commit=60" "noatime" "ssd" ];
+	fileSystems."/@".options = [ "compress=zstd:2" "space_cache=v2" "discard=async" "commit=60" "noatime" "nodiratime" "ssd" ];
+	fileSystems."/home".options = [ "compress=zstd:2" "space_cache=v2" "discard=async" "commit=60" "noatime" "nodiratime" "ssd" ];
+	fileSystems."/nix".options = [ "compress=zstd:2" "space_cache=v2" "discard=async" "commit=60" "noatime" "nodiratime" "ssd" ];
 
 	fileSystems."/@".neededForBoot = true;
 }

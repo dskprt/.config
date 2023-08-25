@@ -4,7 +4,7 @@
 	];
 
 	boot.kernelPackages = pkgs.linuxPackages_latest;
-	boot.kernelParams = [ "amd_pstate=active" "amd_pstate.replace=1" "amdgpu.ppfeaturemask=0xfff7ffff" ];
+	boot.kernelParams = [ "amd_pstate=active" "amd_pstate.replace=1" "amdgpu.sg_display=0" "amdgpu.ppfeaturemask=0xfff7ffff" ];
 	# boot.kernelModules = [ "msr" ];
 	boot.consoleLogLevel = 6;
 
