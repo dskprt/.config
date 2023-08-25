@@ -3,6 +3,8 @@
 	imports = [
 		(inputs.impermanence + "/nixos.nix")
 
+		./num-on-boot.nix
+
 		# subfiles
 		./filesystems
 		./users

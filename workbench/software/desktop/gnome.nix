@@ -36,39 +36,41 @@
 		gnome-console
 		gnome-photos
 	]) ++ (with pkgs.gnome; [
+		yelp
 		cheese
 		epiphany
 		gnome-contacts
 		gnome-logs
-		gnome-maps
-		gnome-music
-		nautilus
+		#gnome-maps
+		#gnome-music
+		#nautilus
 		totem
 	]);
 
 	environment.systemPackages = with pkgs; [
 		gnome.gnome-shell-extensions
-		gnome.dconf-editor
+		gnome.gnome-tweaks
+		#gnome.dconf-editor
 
-		cinnamon.nemo-with-extensions
-		cinnamon.nemo-fileroller
+		#cinnamon.nemo-with-extensions
+		#cinnamon.nemo-fileroller
 
 		gnome.adwaita-icon-theme
 	];
 
-	xdg.mime.defaultApplications = {
-		"inode/directory" = "nemo.desktop";
-		"application/x-gnome-saved-search" = "nemo.desktop";
-	};
+	#xdg.mime.defaultApplications = {
+	#	"inode/directory" = "nemo.desktop";
+	#	"application/x-gnome-saved-search" = "nemo.desktop";
+	#};
 
 	xdg.portal.xdgOpenUsePortal = true;
 
 	# experiment: nemo as desktop icon manager
-	services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
-		[org.gnome.desktop.background]
-		show-desktop-icons=false
-		[org.nemo.desktop]
-		show-desktop-icons=true
-	'';
+	#services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
+	#	[org.gnome.desktop.background]
+	#	show-desktop-icons=false
+	#	[org.nemo.desktop]
+	#	show-desktop-icons=true
+	#'';
 }
 

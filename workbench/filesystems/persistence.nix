@@ -9,6 +9,7 @@
 		files = [
 			"/etc/machine-id"
 			"/etc/nix/id_rsa"
+			"/var/lib/gdm/.config/monitors.xml"
 		];
 	};
 }

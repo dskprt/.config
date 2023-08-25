@@ -43,6 +43,7 @@
 		nvme-cli
 		amdctl
 		asusctl
+		supergfxctl
 
 		qemu
 		virt-manager
