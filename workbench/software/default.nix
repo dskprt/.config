@@ -28,7 +28,7 @@
 		micro
 		tmux
 
-		nvtop
+		nvtop-amd
 		htop
 
 		rsync
