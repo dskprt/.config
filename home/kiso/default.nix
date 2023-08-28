@@ -52,6 +52,9 @@
 		legendary-gl
 		prismlauncher
 
+		python311
+		pipenv
+
 		vscode-fhs
 		github-desktop
 	];
@@ -87,6 +90,13 @@
 		shellAliases = {
 			".." = "cd ..";
 			"..." = "cd ../..";
+		};
+	};
+
+	dconf.settings = {
+		"org/virt-manager/virt-manager/connections" = {
+			autoconnect = ["qemu:///system"];
+			uris = ["qemu:///system"];
 		};
 	};
 

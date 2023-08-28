@@ -8,6 +8,14 @@
 	# services.openssh.enable = true;
 	services.asusd.enable = true;
 
+	services.supergfxd = {
+		enable = false;
+		settings = {
+			"vfio_enable" = true;
+			"hotplug_type" = "Asus";
+		};
+	};
+
 	programs.steam.enable = true;
 	programs.fish.enable = true;
 	programs.dconf.enable = true;

@@ -1,4 +1,17 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }:
+let
+	vfioExtraEntries = pkgs.stdenv.mkDerivation rec {
+		name = "vfio-extra-entries.txt";
+		phases = "buildPhase";
+		builder = ./vfio-entry-builder.sh;
+		nativeBuildInputs = [ pkgs.coreutils pkgs.util-linux pkgs.gnugrep ];
+		PATH = lib.makeBinPath nativeBuildInputs;
+		vfioPciIds = "1002:7480,1002:ab30";
+	};
+
+	vfioExtraEntriesString = builtins.readFile vfioExtraEntries;
+in
+{
 	imports = [
 		#./plymouth.nix
 	];
@@ -23,8 +36,9 @@
 					path = ./theme;
 					name = "workbench-grub-theme";
 				};
-				installPhase = "mkdir -p $out && cp * $out/";
+				installPhase = "mkdir -p $out && cp * $out/ && cp background.png /boot/";
 			};
+			extraEntries = vfioExtraEntriesString;
 		};
 	};
 }
