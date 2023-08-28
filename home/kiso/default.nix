@@ -51,6 +51,7 @@
 		lutris
 		legendary-gl
 		prismlauncher
+		clonehero
 
 		python311
 		pipenv

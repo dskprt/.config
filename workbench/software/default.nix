@@ -9,10 +9,15 @@
 	services.asusd.enable = true;
 
 	services.supergfxd = {
-		enable = false;
+		enable = true;
 		settings = {
-			"vfio_enable" = true;
-			"hotplug_type" = "Asus";
+		  mode = "Hybrid";
+		  vfio_enable = true;
+		  vfio_save = false;
+		  always_reboot = true;
+		  no_logind = false;
+		  logout_timeout_s = 120;
+		  hotplug_type = "Asus";
 		};
 	};
 
