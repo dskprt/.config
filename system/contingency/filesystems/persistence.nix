@@ -1,9 +1,8 @@
 {
-	environment.persistence."/@" = {
+	environment.persistence."/var/persist" = {
 		directories = [
 			"/etc/nixos"
 			"/etc/NetworkManager"
-			"/var/log"
 		];
 		files = [
 			"/etc/machine-id"

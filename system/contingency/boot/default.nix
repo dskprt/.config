@@ -1,5 +1,5 @@
 { pkgs, lib, ... }: {
-	boot.consoleLogLevel = 6;
+	boot.consoleLogLevel = 8;
 
 	boot.loader = {
 		efi.canTouchEfiVariables = true;
@@ -7,7 +7,7 @@
 		systemd-boot = {
 			enable = true;
 			consoleMode = "0";
-			configurationLimit = 20;
+			configurationLimit = 10;
 		};
 	};
 
