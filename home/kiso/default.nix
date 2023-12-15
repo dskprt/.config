@@ -1,9 +1,13 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, ... }:
+let
+	vscode-extensions = inputs.nix-vscode-extensions.extensions.x86_64-linux.vscode-marketplace;
+in
+{
 	# You can import other home-manager modules here
 	imports = [
 		# If you want to use home-manager modules from other flakes (such as nix-colors):
 		# inputs.nix-colors.homeManagerModule
-		./gnome.nix
+		# ./gnome.nix
 	];
 
 	nixpkgs = {
@@ -51,13 +55,51 @@
 		lutris
 		legendary-gl
 		prismlauncher
-		clonehero
+		#clonehero
+		ferium
+		ckan
 
-		python311
-		pipenv
+		kompare
+		deluge
+		krita
 
-		vscode-fhs
-		github-desktop
+		#graalvm-ce
+		#temurin-bin-17
+		#jetbrains.idea-community
+		jetbrains.clion
+
+		poetry
+
+		fluidsynth
+		soundfont-generaluser
+		soundfont-fluid
+
+		(vscode-with-extensions.override {
+			vscode = vscode-fhs;
+			vscodeExtensions = (with vscode-extensions; [
+				webfreak.debug
+				tamasfe.even-better-toml
+				#rust-lang.rust-analyzer
+				#vadimcn.vscode-lldb
+				mesonbuild.mesonbuild
+				ms-python.python
+				ms-vscode.cpptools
+				ms-vscode.cpptools-themes
+				editorconfig.editorconfig
+				rioj7.vscode-file-templates
+				llvm-vs-code-extensions.vscode-clangd
+				#platformio.platformio-ide
+
+				#nadako.vshaxe
+				#wiggin77.codedox
+				#vshaxe.haxe-debug
+				#HaxeFoundation.haxe-hl
+				#vshaxe.hxcpp-debugger
+				#jeremyfa.ceramic
+			]) ++ [
+				vscode-extensions."13xforever".language-x86-64-assembly
+			];
+		})
 	];
 
 	programs.fish = {
@@ -83,14 +125,66 @@
 		'';
 		shellInit = ''
 			set -Ux PIPENV_VENV_IN_PROJECT 1
-			set -x HSA_OVERRIDE_GFX_VERSION 10.3.0
+			set -Ux POETRY_VIRTUALENVS_IN_PROJECT 1
+			
+			set -x HSA_OVERRIDE_GFX_VERSION 11.0.2
 			set -x PYTORCH_HIP_ALLOC_CONF garbage_collection_threshold:0.95,max_split_size_mb:128
 
 			set -x WINEDLLOVERRIDES winemenubuilder.exe=d
+			set -x WINEDEBUG -all
+
+			set -x EM_CACHE ~/.cache/emscripten
 		'';
 		shellAliases = {
 			".." = "cd ..";
 			"..." = "cd ../..";
+		};
+	};
+
+	programs.mangohud = {
+		enable = true;
+		settings = {
+			#fps_limit = 165;
+			#vsync = 0;
+			#gl_vsync = 1;
+
+			#preset = 3;
+
+			gpu_stats = true;
+			gpu_temp = true;
+			#gpu_junction_temp = true;
+			gpu_power = true;
+			gpu_load_change = true;
+			#gpu_fan = true;
+			gpu_core_clock = true;
+
+			cpu_stats = true;
+			cpu_temp = true;
+			cpu_power = true;
+			cpu_load_change = true;
+			cpu_mhz = true;
+			
+			#core_load = true;
+			#core_load_change = true;
+
+			io_read = true;
+			io_write = true;
+
+			vram = true;
+			ram = true;
+
+			fps = true;
+			frametime = true;
+
+			battery = true;
+			#battery_icon = true;
+
+			#font_size = 20;
+			round_corners = 8;
+			no_display = true;
+
+			gpu_name = true;
+			exec_name = true;
 		};
 	};
 
@@ -99,6 +193,12 @@
 			autoconnect = ["qemu:///system"];
 			uris = ["qemu:///system"];
 		};
+	};
+
+	home.sessionVariables = {
+		#"QT_QPA_PLATFORM" = "wayland";
+		#"NIXOS_OZONE_WL" = "1";
+		"LUTRIS_SKIP_INIT" = "1";
 	};
 
 	# Nicely reload system units when changing configs

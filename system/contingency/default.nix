@@ -3,18 +3,14 @@
 	imports = [
 		(inputs.impermanence + "/nixos.nix")
 
-		./num-on-boot.nix
-
 		# subfiles
 		./filesystems
 		./users
 		./boot
 		./software
-		./gpu/amd.nix
-		# ./gpu/nvidia.nix
 
-		# custom systemd services
-		# ./services/00-amdctl-undervolt.nix
+		# auto upgrade config
+		#./auto-upgrade.nix
 
 		# hardware config
 		./hardware.nix
@@ -52,7 +48,7 @@
 		gc = {
 			automatic = true;
 			dates = "weekly";
-			options = "--delete-older-than 21d";
+			options = "--delete-older-than 30d";
 		};
 
 		settings = {
@@ -61,7 +57,11 @@
 			# Deduplicate and optimize nix store
 			auto-optimise-store = true;
 		};
+
+		optimise.automatic = true;
 	};
+
+	fonts.fontDir.enable = true;
  
 	powerManagement = {
 		enable = true;
@@ -77,11 +77,12 @@
 	services.fstrim.enable = true;
 
 	## networking
-	networking.hostName = "workbench";
+	networking.hostName = "contingency";
 	networking.networkmanager.enable = true;
 
 	## time
 	time.timeZone = "Europe/Warsaw";
+	time.hardwareClockInLocalTime = true;
 
 	## console
 	i18n.defaultLocale = "en_GB.UTF-8";
@@ -89,37 +90,6 @@
 		#font = "Lat2-Terminus16";
 		keyMap = "pl";
 		earlySetup = true;
-	#	colors = [
-	#		"282828"
-	#		"cc231d"
-	#		"989621"
-	#		"d79a21"
-	#		"458588"
-	#		"b16286"
-	#		"689d6a"
-	#		"a89984"
-	#		"928374"
-	#		"fb4934"
-	#		"b8bb26"
-	#		"fabd2f"
-	#		"83a598"
-	#		"d3869b"
-	#		"8ec07c"
-	#		"ebdbb2"
-	#	];
-	};
-
-	## sound
-	# sound.enable = false;
-	hardware.pulseaudio.enable = false;
-
-	security.rtkit.enable = true;
-	services.pipewire = {
-		enable = true;
-		alsa.enable = true;
-		alsa.support32Bit = true;
-		pulse.enable = true;
-		jack.enable = true;
 	};
 
 	## firewall

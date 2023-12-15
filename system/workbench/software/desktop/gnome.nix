@@ -26,6 +26,8 @@
 	#services.gnome.rygel.enable = lib.mkForce false;
 	services.gnome.sushi.enable = lib.mkForce false;
 
+	services.power-profiles-daemon.enable = lib.mkForce false;
+
 	programs.gnome-terminal.enable = lib.mkForce true;
 	#programs.geary.enable = lib.mkForce false;
 

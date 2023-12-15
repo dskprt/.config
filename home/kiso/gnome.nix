@@ -24,7 +24,7 @@
 	dconf.settings = {
 		"org/gnome/shell".enabled-extensions = [
 			"user-theme@gnome-shell-extensions.gcampax.github.com"
-			"gsconnect@andyholmes.github.io"
+			#"gsconnect@andyholmes.github.io"
 			"blur-my-shell@aunetx"
 			"trayIconsReloaded@selfmade.pl"
 			"dash-to-dock@micxgx.gmail.com"
@@ -95,7 +95,7 @@
 		# arcmenu
 		"org/gnome/shell/extensions/arcmenu" = {
 			enable-standalone-runner-menu = true;
-			runner-menu-custom-hotkey = "<Super>space";
+			runner-menu-custom-hotkey = "<Alt>F1";
 			menu-layout = "Redmond";
 			position-in-panel = "Left";
 			menu-width-adjustment = "25";
@@ -130,7 +130,8 @@
 			dash-max-icon-size = 40;
 			show-favorites = false;
 			show-show-apps-button = false;
-			show-mounts-network = true;
+			show-mounts = false;
+			show-mounts-network = false;
 			hide-tooltip = true;
 			click-action = "focus-minimize-or-preview";
 			scroll-action = "cycle-windows";
@@ -172,8 +173,9 @@
 			position-weight = 0;
 			icons-limit = 8;
 			icon-size = 16;
+			tray-margin-left = 4;
+			tray-margin-right = 4;
 			icon-padding-horizontal = 6;
-			icon-margin-horizontal = 8;
 		};
 		
 	};

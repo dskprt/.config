@@ -20,8 +20,13 @@
 		gnome.adwaita-icon-theme
 		
 		libsForQt5.kdialog
+
+		partition-manager
+		libsForQt5.kcalc
 	];
 
 	services.xserver.wacom.enable = true;
+	
 	xdg.portal.enable = true;
+	xdg.portal.xdgOpenUsePortal = true;
 }

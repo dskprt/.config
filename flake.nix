@@ -14,6 +14,9 @@
 
 		# Hyprland
 		# hyprland.url = "github:hyprwm/Hyprland";
+
+		# Visual Studio Code extensions
+		nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 	};
 
 	outputs = {
@@ -21,6 +24,7 @@
 		home-manager,
 		impermanence,
 		# hyprland,
+		nix-vscode-extensions,
 		...
 	}@inputs: {
 		# NixOS configuration entrypoint
@@ -29,7 +33,11 @@
 			"workbench" = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit inputs; }; # Pass flake inputs to our config
 				# > Our main nixos configuration file <
-				modules = [ ./workbench ];
+				modules = [ ./system/workbench ];
+			};
+			"contingency" = nixpkgs.lib.nixosSystem {
+				specialArgs = { inherit inputs; };
+				modules = [ ./system/contingency ];
 			};
 		};
 
@@ -40,12 +48,17 @@
 				pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
 				extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
 				# > Our main home-manager configuration file <
-				modules = [ ./home/kiso/default.nix ];
+				modules = [ ./home/kiso ];
 			};
 			"yayoi" = home-manager.lib.homeManagerConfiguration {
 				pkgs = nixpkgs.legacyPackages.x86_64-linux;
 				extraSpecialArgs = { inherit inputs; };
-				modules = [ ./home/yayoi/default.nix ];
+				modules = [ ./home/yayoi ];
+			};
+			"commander" = home-manager.lib.homeManagerConfiguration {
+				pkgs = nixpkgs.legacyPackages.x86_64-linux;
+				extraSpecialArgs = { inherit inputs; };
+				modules = [ ./home/commander ];
 			};
 		};
 	};
