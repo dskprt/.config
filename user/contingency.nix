@@ -1,8 +1,9 @@
 { pkgs, ... }: {
 	users.users.contingency = {
 		uid = 100;
-		group = "users";
-		isNormalUser = true;
+		isSystemUser = true;
 		home = "/home/heart";
+		useDefaultShell = true;
+		createHome = true;
 	};
 }
