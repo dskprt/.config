@@ -4,6 +4,5 @@
 		group = "users";
 		isNormalUser = true;
 		home = "/home/heart";
-		useDefaultShell = true;
 	};
 }
