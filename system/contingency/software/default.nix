@@ -13,9 +13,6 @@
 
 	programs.fish.enable = true;
 
-	security.sudo.enable = false;
-	security.doas.enable = true;
-
 	environment.systemPackages = with pkgs; [
 		home-manager
 

@@ -1,5 +1,7 @@
 { pkgs, config, ... }:
 {
+	fileSystems."/boot".options = [ "umask=0077" ];
+	
 	fileSystems."/".options = [ "noatime" "nodiratime" ];
 	fileSystems."/tmp".options = [ "noatime" "nodiratime" ];
 
