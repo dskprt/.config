@@ -4,6 +4,6 @@
 		group = "users";
 		isNormalUser = true;
 		home = "/home/heart";
-		shell = pkgs.sh;
+		useDefaultShell = true;
 	};
 }
