@@ -50,7 +50,7 @@ in
 		audacious
 		vlc
 		#krita
-		#obsidian
+		obsidian
 
 		lutris
 		legendary-gl
@@ -199,6 +199,7 @@ in
 		#"QT_QPA_PLATFORM" = "wayland";
 		#"NIXOS_OZONE_WL" = "1";
 		"LUTRIS_SKIP_INIT" = "1";
+		"GTK_USE_PORTAL" = "1";
 	};
 
 	# Nicely reload system units when changing configs
