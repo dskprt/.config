@@ -1,8 +1,4 @@
 { pkgs, ... }: {
-	imports = [
-		./desktop/plasma5.nix
-	];
-
 	services.tailscale.enable = true;
 
 	services.openssh = {
