@@ -7,7 +7,12 @@
 
 	services.openssh = {
 		enable = true;
-		settings.X11Forwarding = true;
+		settings = {
+			X11Forwarding = true;
+			PermitRootLogin = "no";
+			PasswordAuthentication = false;
+			AllowUsers = [ "commander" ];
+		};
 	};
 
 	programs.fish.enable = true;

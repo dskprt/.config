@@ -47,8 +47,8 @@
 
 		gc = {
 			automatic = true;
-			dates = "weekly";
-			options = "--delete-older-than 30d";
+			dates = "daily";
+			options = "--delete-older-than 7d";
 		};
 
 		settings = {
@@ -82,7 +82,6 @@
 
 	## time
 	time.timeZone = "Europe/Warsaw";
-	time.hardwareClockInLocalTime = true;
 
 	## console
 	i18n.defaultLocale = "en_GB.UTF-8";

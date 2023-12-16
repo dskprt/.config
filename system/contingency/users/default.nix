@@ -5,4 +5,5 @@
 	];
 
 	users.mutableUsers = false;
+	users.motdFile = "/var/motd"
 }
