@@ -5,7 +5,7 @@
 		isNormalUser = true;
 		home = "/home/cmdr";
 		shell = pkgs.fish;
-		hashedPasswordFile = "/@/commander.pass";
+		hashedPasswordFile = "/var/commander.pass";
 		extraGroups = [ "wheel" ];
 
 		openssh.authorizedKeys.keys = [
